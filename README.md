@@ -1,7 +1,7 @@
 # azure-login
 If you use PowerShell to interact with Azure, this will make connecting and authenticating to Azure much easier.
 
-I work with PowerShell everyday mostly automating Azure workloads. I find myself contently logging in to different Azure Subscriptions and tenants to perform test or to grab information.
+I work with PowerShell everyday mostly automating Azure workloads. I find myself constantly logging in to different Azure Subscriptions and Tenants to perform tests or to grab information.
 
 To make my life easier, I load this function in my PowerShell profile by default when PowerShell or VSCode is launched.
 
