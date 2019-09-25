@@ -8,6 +8,7 @@ To make my life easier, I load this function in my PowerShell profile by default
 Now, instead of having to use 10 different commands to specify an environment, connect to Azure, set my working Subscription, get the SubscriptionID and TenantID and choose my location, I can do this all with one command.
 
 AzLogin - if I am working with Az modules.
+
 ARMLogin - if I am working with AzureRM modules.
 
 To set this up, create a folder and save the AzureLoginFunctions.ps1 file in it.
