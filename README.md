@@ -3,7 +3,7 @@ If you use PowerShell to interact with Azure, this will make connecting and auth
 
 I work with PowerShell everyday mostly automating Azure workloads. I find myself contently logging in to different Azure Subscriptions and tenants to perform test or to grab information.
 
-To make my life easier, I load this function in my PowerShell profile by default when PowerShell is launched.
+To make my life easier, I load this function in my PowerShell profile by default when PowerShell or VSCode is launched.
 
 Now, instead of having to use 10 different commands to specify an environment, connect to Azure, set my working Subscription, get the SubscriptionID and TenantID and choose my location, I can do this all with one command.
 
