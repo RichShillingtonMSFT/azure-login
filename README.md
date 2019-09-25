@@ -13,12 +13,12 @@ ARMLogin - if I am working with AzureRM modules.
 
 This works with PowerShell Console, PowerShell ISE & VSCode.
 
-To set this up, create a folder and save the AzureLoginFunctions.ps1 file in it.
-Example: C:\Users\\[ProfileDirectory]\Documents\PowerShellFuntions
+To set this up, create a folder and save the AzureLoginFunctions.ps1 file from this repository in it.  
+Example: C:\Users\\[ProfileDirectory]\Documents\PowerShellFuntions  
 You can place other functions or scripts in this directory as well if you want them to load each time you launch PowerShell.
 
-Using the list below, decide how you want the profile to load and for which users.
-Download a copy of the corresponding sample profile .ps1 script and place it in that location.
+Using the list below, decide how you want the profile to load and for which users.  
+Download a copy of the corresponding sample profile .ps1 script and place it in that location.  
 Modify the $FunctionDirectory variable to match the location you picked for your scripts.
 
 All Users All Hosts - C:\Windows\System32\WindowsPowerShell\v1.0\profile.ps1                                  
