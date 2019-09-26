@@ -1,13 +1,13 @@
-﻿function AZLogin
+function AZLogin
 {
     # Enviornment Selection
     $Environments = Get-AzEnvironment
-    $Environment = $Environments | Out-GridView -Title "Please Select an Azure Enviornment." -PassThru
+    $Script:Environment = $Environments | Out-GridView -Title "Please Select an Azure Enviornment." -PassThru
 
     # Connect to Azure
     try
     {
-        $AzAccount = Connect-AzAccount -Environment $($Environment.Name) -ErrorAction 'Stop'
+        $Script:AzAccount = Connect-AzAccount -Environment $($Environment.Name) -ErrorAction 'Stop'
     }
     catch
     {
@@ -20,15 +20,16 @@
         $Subscriptions = Get-AzSubscription
         if ($Subscriptions.Count -gt '1')
         {
-            $Subscription = $Subscriptions | Out-GridView -Title "Please Select a Subscription." -PassThru
-            Set-AzContext $Subscription
-            $SubscriptionID = $Subscription.SubscriptionID
-            $TenantID = $Subscription.TenantId
+            $Script:Subscription = $Subscriptions | Out-GridView -Title "Please Select a Subscription." -PassThru
+            Set-AzContext $Subscription | Out-Null
+            $Script:SubscriptionID = $Subscription.SubscriptionID
+            $Script:TenantID = $Subscription.TenantId
         }
         else
         {
-            $SubscriptionID = $Subscriptions.SubscriptionID
-            $TenantID = $Subscriptions.TenantId
+            $Script:Subscription = $Subscriptions
+            $Script:SubscriptionID = $Subscriptions.SubscriptionID
+            $Script:TenantID = $Subscriptions.TenantId
         }
     }
     catch
@@ -39,19 +40,19 @@
 
     # Location Selection
     $Locations = Get-AzLocation
-    $Location = ($Locations | Out-GridView -Title "Please Select a location." -PassThru).Location
+    $Script:Location = ($Locations | Out-GridView -Title "Please Select a location." -PassThru).Location
 }
 
 function ARMLogin
 {
     # Enviornment Selection
     $Environments = Get-AzureRmEnvironment
-    $Environment = $Environments | Out-GridView -Title "Please Select an Azure Enviornment." -PassThru
+    $Script:Environment = $Environments | Out-GridView -Title "Please Select an Azure Enviornment." -PassThru
 
     # Connect to Azure
     try
     {
-        $AzureRMAccount = Connect-AzureRmAccount -Environment $($Environment.Name) -ErrorAction 'Stop'
+        $Script:AzureRMAccount = Connect-AzureRmAccount -Environment $($Environment.Name) -ErrorAction 'Stop'
     }
     catch
     {
@@ -64,15 +65,16 @@ function ARMLogin
         $Subscriptions = Get-AzureRmSubscription
         if ($Subscriptions.Count -gt '1')
         {
-            $Subscription = $Subscriptions | Out-GridView -Title "Please Select a Subscription." -PassThru
-            Select-AzureRmSubscription $Subscription
-            $SubscriptionID = $Subscription.SubscriptionID
-            $TenantID = $Subscription.TenantId
+            $Script:Subscription = $Subscriptions | Out-GridView -Title "Please Select a Subscription." -PassThru
+            Select-AzureRmSubscription $Subscription | Out-Null
+            $Script:SubscriptionID = $Subscription.SubscriptionID
+            $Script:TenantID = $Subscription.TenantId
         }
         else
         {
-            $SubscriptionID = $Subscriptions.SubscriptionID
-            $TenantID = $Subscriptions.TenantId
+            $Script:Subscription = $Subscriptions
+            $Script:SubscriptionID = $Subscriptions.SubscriptionID
+            $Script:TenantID = $Subscriptions.TenantId
         }
     }
     catch
@@ -81,8 +83,7 @@ function ARMLogin
         break
     }
 
-
     # Location Selection
     $Locations = Get-AzureRmLocation
-    $Location = ($Locations | Out-GridView -Title "Please Select a location." -PassThru).Location
+    $Script:Location = ($Locations | Out-GridView -Title "Please Select a location." -PassThru).Location
 }
