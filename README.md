@@ -34,4 +34,7 @@ Current User VSCode Only - C:\Users\\[ProfileDir]\Documents\WindowsPowerShell\Mi
 That’s all you need to do. Now when you open PowerShell, the AzLogin and ARMLogin functions will load for you.
 If you want to connect to Azure, just type AzLogin or ARMLogin and hit enter.
 
+After the login function completes, it will populate new variables in your session.   
+$Environment, $Subscription, $SubscriptionID, $TenantID, $Location
+
 If you want to see it in action, check out the Screen Shots folder in this repository.
