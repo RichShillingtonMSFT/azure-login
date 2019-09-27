@@ -7,8 +7,8 @@
 # CONNECTION WITH THE USE OF THIS CODE AND INFORMATION REMAINS WITH THE USER.
 
 # Directory where my function scripts are stored
-# Example: "$ENV:USERPROFILE\Documents\PowerShellFuntions"
-$FunctionDirectory = "$ENV:USERPROFILE\Documents\PowerShellFuntions"
+# Example: "$ENV:USERPROFILE\Documents\PowerShellFunctions"
+$FunctionDirectory = "$ENV:USERPROFILE\Documents\PowerShellFunctions"
 
 # Automatically Load All Scripts in the $FunctionDirectory location
 Get-ChildItem "${FunctionDirectory}\*.ps1" | ForEach-Object {.$_}
